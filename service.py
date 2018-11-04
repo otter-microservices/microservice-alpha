@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     url = "http://" + os.environ['UPSTREAM_SERVICE'] + "." + os.environ['BRANCH'] + "-" + os.environ['UPSTREAM_SERVICE'] + ":8080"
-    request = requests.get(url)
+    request = requests.get(url, timeout=0.5)
     chain = json.loads(request.text)
     print(type(chain))
     branch = dict()
