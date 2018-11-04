@@ -83,6 +83,14 @@ steps:
     namespace: ${{NAMESPACE}}
     file_path: ./k8s/namespace.yaml
 
+  RunningConfigmapScript:
+    title: Running Configmap
+    type: deploy
+    kind: kubernetes
+    cluster: standard-cluster-1@otters-cc
+    namespace: ${{NAMESPACE}}
+    file_path: ./k8s/configmap.yaml
+
   RunningDeployScript:
     title: Running Deployment
     type: deploy
@@ -91,7 +99,6 @@ steps:
     namespace: ${{NAMESPACE}}
     file_path: ./k8s/deployment.yaml
 
-          
   RunningServiceScript:
     title: Running Service
     type: deploy

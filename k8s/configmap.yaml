@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata:
   name: environment-variables
 data:
+  UPSTREAM_SERVICE: {{UPSTREAM_SERVICE}} 
   BRANCH: {{CF_BRANCH_TAG_NORMALIZED}}
