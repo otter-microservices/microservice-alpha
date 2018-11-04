@@ -5,9 +5,11 @@ import requests
 from flask import Flask
 app = Flask(__name__)
 
+microservice-alpha.master-microservice-alpha
+
 @app.route('/')
 def hello_world():
-    url = "http://" + os.environ['BRANCH'] + ":8080"
+    url = "http://" + "os.environ['UPSTREAM_SERVICE']"+ os.environ['BRANCH'] + "-" + os.environ['UPSTREAM_SERVICE'] + ":8080"
     request = requests.get(url)
     chain = json.loads(request.text)
     print(type(chain))
