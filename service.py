@@ -16,7 +16,7 @@ def hello_world():
     chain.append(branch)
     return json.dumps(chain)
 
-@app.route('/heathz')
+@app.route('/healthz')
 def healthz():
     return "OK"
 
