@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    url = "http://" + os.environ['UPSTREAM_SERVICE'] + "." + os.environ['BRANCH'] + "-" + os.environ['UPSTREAM_SERVICE'] + os.environ['UPSTREAM_PORT']
+    url = "http://" + os.environ['UPSTREAM_SERVICE'] + "." + os.environ['BRANCH'] + "-" + os.environ['UPSTREAM_SERVICE'] + ":" + os.environ['UPSTREAM_PORT']
     request = requests.get(url, timeout=0.5)
     chain = json.loads(request.text)
     print(type(chain))
