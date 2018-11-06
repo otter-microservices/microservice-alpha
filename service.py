@@ -14,7 +14,7 @@ def hello_world():
         url = "http://" + os.environ['UPSTREAM_SERVICE'] + "." + os.environ['BRANCH'] + "-" + os.environ['UPSTREAM_SERVICE'] + ":" + os.environ['UPSTREAM_PORT']
         request = requests.get(url, timeout=0.5)
         chain = json.loads(request.text)
-    else
+    else:
         chain = []
 
     branch[os.environ['THIS_SERVICE']] = os.environ['BRANCH']
