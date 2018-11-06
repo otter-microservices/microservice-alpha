@@ -23,7 +23,7 @@ def hello_world():
 
 @app.route('/me')
 def me():
-    return "I am service: <b>" + os.environ['THIS_SERVICE'] + "<b/> from branch: <b>" + os.environ['BRANCH'] + "<b/>"
+    return "I am service: <b>" + os.environ['THIS_SERVICE'] + "</b> from branch: <b>" + os.environ['BRANCH'] + "</b>"
 
 @app.route('/healthz')
 def healthz():
