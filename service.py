@@ -21,6 +21,10 @@ def hello_world():
     chain.append(branch)
     return json.dumps(chain)
 
+@app.route('/me')
+def me():
+    return "I am service: " + os.environ['THIS_SERVICE'] + " from branch: " + os.environ['BRANCH'] 
+
 @app.route('/healthz')
 def healthz():
     return "OK"
