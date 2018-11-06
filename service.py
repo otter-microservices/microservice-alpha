@@ -10,12 +10,12 @@ CORS(app, resources='*')
 @app.route('/')
 def hello_world():
     branch = dict()
-    if 'UPSTREAM_SERVICE' in os.environ:
+    if not os.environ['UPSTREAM_SERVICE']:
+        chain = []
+    else:
         url = "http://" + os.environ['UPSTREAM_SERVICE'] + "." + os.environ['BRANCH'] + "-" + os.environ['UPSTREAM_SERVICE'] + ":" + os.environ['UPSTREAM_PORT']
         request = requests.get(url, timeout=0.5)
         chain = json.loads(request.text)
-    else:
-        chain = []
 
     branch[os.environ['THIS_SERVICE']] = os.environ['BRANCH']
     chain.append(branch)
